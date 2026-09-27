@@ -1,10 +1,8 @@
 const CACHE_NAME = 'mini-phone-v1.0.0';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png'
+  './',
+  './index.html',
+  './manifest.json'
 ];
 
 // Install
