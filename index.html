@@ -334,6 +334,43 @@ body {
   color: var(--text-secondary); gap: 12px;
 }
 .placeholder-body svg { width: 48px; height: 48px; stroke: var(--text-tertiary); stroke-width: 1.5; fill: none; }
+
+  /* ===== 大屏自适应优化 ===== */
+.page {
+  padding-left: calc(28px + var(--sal));
+  padding-right: calc(28px + var(--sar));
+}
+
+.greeting-card { padding: 20px 0 24px; }
+.greeting-text h1 { font-size: 26px; }
+.greeting-text p { font-size: 15px; }
+.avatar-ring { width: 64px; height: 64px; }
+.avatar-img svg { width: 30px; height: 30px; }
+
+.time-display { padding: 20px 0; }
+.time-big { font-size: 68px; }
+.date-text { font-size: 16px; }
+
+/* App 图标区更舒展 */
+.app-grid { gap: 26px 12px; padding: 24px 0; }
+.icon-box { width: 68px; height: 68px; border-radius: 17px; }
+.icon-box svg { width: 32px; height: 32px; }
+.icon-label { font-size: 12px; }
+
+/* 卡片间距 */
+.widget-card { padding: 20px; border-radius: 20px; margin-bottom: 16px; }
+.widget-title { font-size: 15px; }
+.calendar-day .day-num { width: 36px; height: 36px; font-size: 16px; }
+.calendar-day .day-name { font-size: 12px; }
+.quote-text { font-size: 17px; padding: 8px 0; }
+
+/* Dock 放大 */
+.dock { gap: 22px; height: calc(92px + var(--sab)); }
+.dock-icon { width: 56px; height: 56px; border-radius: 15px; }
+.dock-icon svg { width: 28px; height: 28px; }
+
+/* 状态栏字号 */
+.status-bar .time { font-size: 16px; }
 </style>
 </head>
 <body>
