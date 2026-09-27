@@ -84,7 +84,7 @@ body {
 .status-bar {
   position: fixed;
   top: 0; left: 0; right: 0;
-  height: calc(44px + var(--sat));
+  height: calc(40px + var(--sat));
   padding-top: var(--sat);
   display: flex;
   justify-content: space-between;
@@ -128,16 +128,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-top: calc(70px + var(--sat));
-  padding-bottom: calc(40px + var(--sab));
-  padding-left: calc(30px + var(--sal));
-  padding-right: calc(30px + var(--sar));
+  padding-top: calc(48px + var(--sat));
+  padding-bottom: calc(16px + var(--sab));
+  padding-left: calc(28px + var(--sal));
+  padding-right: calc(28px + var(--sar));
 }
 .page::-webkit-scrollbar { display: none; }
 
 .page-dots {
   position: fixed;
-  bottom: calc(24px + var(--sab));
+  bottom: calc(14px + var(--sab));
   left: 50%; transform: translateX(-50%);
   display: flex; gap: 6px; z-index: 50;
 }
@@ -145,10 +145,10 @@ body {
 .dot.active { background: var(--text); width: 18px; border-radius: 3px; }
 
 /* Home */
-.greeting-card { padding: 10px 0 16px; }
-.greeting-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.greeting-card { padding: 8px 0 12px; }
+.greeting-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
 .avatar-ring {
-  width: 64px; height: 64px; border-radius: 50%;
+  width: 60px; height: 60px; border-radius: 50%;
   background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
   padding: 2px;
 }
@@ -157,24 +157,24 @@ body {
   width: 100%; height: 100%; border-radius: 50%;
   background: var(--card); display: flex; align-items: center; justify-content: center;
 }
-.avatar-img svg { width: 30px; height: 30px; stroke: var(--text-secondary); stroke-width: 1.5; fill: none; }
-.greeting-text h1 { font-size: 26px; font-weight: 700; }
+.avatar-img svg { width: 28px; height: 28px; stroke: var(--text-secondary); stroke-width: 1.5; fill: none; }
+.greeting-text h1 { font-size: 25px; font-weight: 700; }
 .greeting-text p { font-size: 15px; color: var(--text-secondary); margin-top: 2px; }
-.time-display { text-align: center; padding: 8px 0; }
-.time-big { font-size: 70px; font-weight: 200; letter-spacing: -2px; font-variant-numeric: tabular-nums; }
+.time-display { text-align: center; padding: 6px 0; }
+.time-big { font-size: 66px; font-weight: 200; letter-spacing: -2px; font-variant-numeric: tabular-nums; }
 .date-text { font-size: 16px; color: var(--text-secondary); margin-top: 4px; }
 
 /* App Grid */
-.app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 12px; padding: 24px 0; }
+.app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px 12px; padding: 20px 0; }
 .app-icon { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
 .app-icon:active .icon-box { transform: scale(0.9); opacity: 0.7; }
 .icon-box {
-  width: 68px; height: 68px; border-radius: 17px;
+  width: 66px; height: 66px; border-radius: 16px;
   background: var(--card); display: flex; align-items: center; justify-content: center;
   transition: transform 0.2s, opacity 0.2s; position: relative;
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
-.icon-box svg { width: 32px; height: 32px; stroke: var(--text); stroke-width: 1.5; fill: none; }
+.icon-box svg { width: 31px; height: 31px; stroke: var(--text); stroke-width: 1.5; fill: none; }
 .icon-box .badge {
   position: absolute; top: -5px; right: -5px;
   min-width: 18px; height: 18px; padding: 0 5px;
@@ -184,14 +184,14 @@ body {
 .icon-label { font-size: 12px; color: var(--text); font-weight: 500; }
 
 /* Widget */
-.widget-card { background: var(--card); border-radius: 20px; padding: 20px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.widget-card { background: var(--card); border-radius: 20px; padding: 18px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 .widget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .widget-title { font-size: 15px; font-weight: 600; }
 .calendar-row { display: flex; justify-content: space-between; }
 .calendar-day { text-align: center; flex: 1; }
 .calendar-day .day-name { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-bottom: 6px; }
 .calendar-day .day-num {
-  width: 36px; height: 36px; border-radius: 50%;
+  width: 34px; height: 34px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 16px; font-weight: 500; margin: 0 auto;
 }
@@ -220,7 +220,7 @@ body {
   display: flex; align-items: center;
   padding-top: calc(10px + var(--sat)); padding-bottom: 10px;
   padding-left: calc(16px + var(--sal)); padding-right: calc(16px + var(--sar));
-  background: var(--bg); flex-shrink: 0; min-height: calc(44px + var(--sat));
+  background: var(--bg); flex-shrink: 0; min-height: calc(40px + var(--sat));
   position: relative; border-bottom: 0.5px solid var(--border);
 }
 .back-btn {
@@ -235,7 +235,7 @@ body {
 
 /* Settings */
 .settings-scroll {
-  padding-top: calc(44px + var(--sat)); padding-bottom: calc(30px + var(--sab));
+  padding-top: calc(40px + var(--sat)); padding-bottom: calc(30px + var(--sab));
   height: 100%; overflow-y: auto; scrollbar-width: none;
 }
 .settings-scroll::-webkit-scrollbar { display: none; }
@@ -507,11 +507,11 @@ body {
           <div class="settings-item">
             <div class="settings-icon gray"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
             <div class="settings-content"><div class="settings-label">版本号</div></div>
-            <div class="settings-value">1.0.2</div>
+            <div class="settings-value">1.0.3</div>
           </div>
         </div>
 
-        <div class="version-info">Mini Phone v1.0.2<br>Made with ❤️</div>
+        <div class="version-info">Mini Phone v1.0.3<br>Made with ❤️</div>
       </div>
     </div>
 
@@ -528,8 +528,6 @@ body {
     <div class="sub-page" id="page-findphone"><div class="sub-header"><button class="back-btn" onclick="closePage('findphone')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>返回</button><span class="sub-title">查手机</span></div><div class="placeholder-body"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg><p>查手机功能开发中...</p></div></div>
     <div class="sub-page" id="page-mcp"><div class="sub-header"><button class="back-btn" onclick="closePage('mcp')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>返回</button><span class="sub-title">MCP</span></div><div class="placeholder-body"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg><p>MCP功能开发中...</p></div></div>
   </div>
-
-  <div class="page-dots-spacer"></div>
 </div>
 
 <script>
