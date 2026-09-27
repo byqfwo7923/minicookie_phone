@@ -1,32 +1,25 @@
-const CACHE_NAME = 'mini-phone-v1.0.1';
-const urlsToCache = [
-  '/minicookie_phone/',
-  '/minicookie_phone/index.html',
-  '/minicookie_phone/manifest.json'
-];
+const CACHE_NAME = 'mini-phone-v1.0.2';
+const HOME = '/minicookie_phone/index.html';
 
-// Install
-self.addEventListener('install', event => {
+self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE_NAME).then(function(cache) {
+      return cache.addAll([
+        '/minicookie_phone/',
+        '/minicookie_phone/index.html',
+        '/minicookie_phone/manifest.json'
+      ]);
+    })
   );
   self.skipWaiting();
 });
 
-// Activate
-self.addEventListener('activate', event => {
+self.addEventListener('activate', function(event) {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.keys().then(function(names) {
       return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
+        names.map(function(name) {
+          if (name !== CACHE_NAME) return caches.delete(name);
         })
       );
     })
@@ -34,51 +27,20 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request)
-          .then(response => {
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-            const responseToCache = response.clone();
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-            return response;
-          });
+self.addEventListener('fetch', function(event) {
+  // 只处理导航请求（打开页面）
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(function() {
+        return caches.match(HOME);
       })
-  );
-});
-
-// Background Sync
-self.addEventListener('sync', event => {
-  if (event.tag === 'sync-data') {
-    event.waitUntil(syncData());
+    );
+    return;
   }
-});
-
-// Push Notifications
-self.addEventListener('push', event => {
-  const options = {
-    body: event.data ? event.data.text() : 'New notification',
-    icon: '/icons/icon-192.png',
-    badge: '/icons/icon-72.png',
-    vibrate: [100, 50, 100],
-    data: {
-      dateOfArrival: Date.now(),
-      primaryKey: 1
-    }
-  };
-
-  event.waitUntil(
-    self.registration.showNotification('Mini Phone', options)
+  // 其他资源：缓存优先，没有就走网络
+  event.respondWith(
+    caches.match(event.request).then(function(res) {
+      return res || fetch(event.request);
+    })
   );
 });
