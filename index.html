@@ -371,6 +371,19 @@ body {
 
 /* 状态栏字号 */
 .status-bar .time { font-size: 16px; }
+
+/* ===== 隐藏 Dock 栏 ===== */
+.dock { display: none !important; }
+
+/* 页面底部留白改小（不用给 Dock 留位置了） */
+.page {
+  padding-bottom: calc(40px + var(--sab));
+}
+
+/* 页面小圆点下移到底部 */
+.page-dots {
+  bottom: calc(30px + var(--sab));
+}
 </style>
 </head>
 <body>
